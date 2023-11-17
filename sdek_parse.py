@@ -45,6 +45,5 @@ if __name__ == "__main__":
     PACKAGE_ID = str(sys.argv[1])
     ELEMENT_ID = int(sys.argv[2])
 
-
     result = parse(PACKAGE_ID, ELEMENT_ID)
     print(result)
