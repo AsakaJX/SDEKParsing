@@ -15,6 +15,7 @@ def parse(orderID):
     search_result = soup.find_all("div", class_="tracking-main-param wide smallbm")
     
     # updating json
+    new_data = {}
     for i in range(len(search_result)):
         # applying regex search on our choosen element
         regex = "<\\/strong>(.*)<\\/div>"
@@ -27,9 +28,10 @@ def parse(orderID):
         if (search_result_normalized == ""):
             search_result_normalized = "empty or package id invalid"
 
-        new_data = { element_name_normalized: str(search_result_normalized) }
-        output["data"].append(new_data)
-        output_updated = json.loads(json.dumps(output))
+        new_data[element_name_normalized] = str(search_result_normalized)
+    
+    output["data"].append(new_data)
+    output_updated = json.loads(json.dumps(output))
 
     return output_updated
 
@@ -41,4 +43,4 @@ if __name__ == "__main__":
     output["package_id"] = PACKAGE_ID
     
     result = parse(PACKAGE_ID)
-    print(result)
+    print(json.dumps(result, indent=4, ensure_ascii=False))
