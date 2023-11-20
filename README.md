@@ -5,7 +5,7 @@
 **Python for Windows:** https://www.python.org/downloads/<br />
 **Python for Linux:** 
 - **Ubuntu:** `sudo apt -y upgrade;sudo apt install -y python3-pip`
-- **Arch:** `sudo pacman -Syy python;sudo pacman -Syy python-pip`
+- **Arch:** `sudo pacman -Syy python python-pip`
 
 **Installing libraries:** `pip install bs4 requests`
 
